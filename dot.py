@@ -6,7 +6,7 @@ rank = comm.Get_rank()
 size = comm.Get_size()
 
 if rank == 0:
-    start_time = MPI.Wtime()  # Заменили time.time() на MPI.Wtime()
+    start_time = MPI.Wtime()  
     a = np.loadtxt('aData_3.dat')
     M = a.size
     local_Ms = [M // size + (1 if i < M % size else 0) for i in range(size)]
@@ -32,4 +32,4 @@ global_dot_allreduce = comm.allreduce(local_dot, op=MPI.SUM)
 
 if rank == 0:
     dot_seq = np.dot(a, a)
-    print(f"Parallel time: {MPI.Wtime() - start_time} seconds")  # Заменили time.time() на MPI.Wtime()
+    print(f"Parallel time: {MPI.Wtime() - start_time} seconds")  
