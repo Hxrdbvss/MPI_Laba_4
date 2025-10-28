@@ -1,6 +1,6 @@
 import numpy as np
 
-M = 1000000  # Можно изменить для тестов
+M = 1000000  
 N = 500
 
 a = np.arange(1, M+1, dtype=np.float64)
